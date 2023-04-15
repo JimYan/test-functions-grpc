@@ -15,12 +15,12 @@ message AccountBo {
 }
 
 message FindAccountReq {
-  required string source = 1;
-  required int32 id = 2;
+  string source = 1;
+  int32 id = 2;
 }
 
 message FindAccountResp {
-  required int32 code = 1;
-  required string msg = 2;
+  int32 code = 1;
+  string msg = 2;
   AccountBo list = 3;
 }

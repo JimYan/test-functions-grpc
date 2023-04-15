@@ -71,3 +71,22 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](LICENSE).
+
+grpcurl \
+ -proto calculator.proto \
+ -d '{"first_operand": 2.0, "second_operand": 3.0, "operation": "ADD"}' \
+ grpc-cloud-run-example-ghri5ivvvq-df.a.run.app:443 \
+ Calculator.Calculate
+
+grpcurl \
+ -proto src/demo.proto \
+ -d '{"source": "sourcevalue", "id": 3.0}' \
+ test-functions-grpc-ghri5ivvvq-df.a.run.app:443 \
+ DemoService.FindAccount
+
+grpcurl \
+ -proto src/demo.proto \
+ -d '{"id":3,"source": "sourcevalue"}' \
+ localhost:8081 \
+ -plaintext \
+ DemoService.FindAccount
